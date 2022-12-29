@@ -85,7 +85,7 @@ if not os.path.isdir(out_path):
 print('Parameters: \n data: {}\n epoch: {}\n batch: {}\n lr_rate: {}\n args.dropout_ratio: {}\n patient: {}\n'.format(args.data,args.train_epoch, args.batch_size, args.learning_rate, args.dropout_ratio, args.early_stop_patient))
 
 #Our Traffic prediction Model
-class Net(nn.Module):
+class Net(nn.Module):                                                                                                  # model parameters
     def __init__(self):
         super(Net, self).__init__()
         self.node_cons = nn.Parameter(torch.FloatTensor(args.seg_num * args.input_time, args.con_feature))
