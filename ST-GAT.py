@@ -24,7 +24,7 @@ class UserNamespace(object):
 user_namespace = UserNamespace()
 
 args = argparse.ArgumentParser(description='args')
-args.add_argument('--mode', default='train', type=str)
+args.add_argument('--mode', default='train', type=str)                                      # mode: train / test
 args.add_argument('--conf', type=str)
 args_string = args.parse_args(namespace=user_namespace)
 print(args)
