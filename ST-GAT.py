@@ -107,7 +107,7 @@ class Net(nn.Module):
     def forward(self, x):
         x = x.to(device)
         do = torch.nn.Dropout(p=args.dropout_ratio)
-        cwpl_weights = torch.einsum('ij,jkl->ikl', self.node_cons, self.context_weight)
+        cwpl_weights = torch.einsum('ij,jkl->ikl', self.node_cons, self.context_weight)                      
         cwpl_bias = self.node_cons.matmul(self.context_bias)
         x = torch.einsum('bij,ijk->bik', x, cwpl_weights) + cwpl_bias
         x = self.bn1(x)
@@ -125,7 +125,7 @@ class Net(nn.Module):
         return output
 
 
-def mask_(seg_num, input_time):
+def mask_(seg_num, input_time):                                                                            # mask reverse time order
   masknp = np.empty((seg_num*input_time, seg_num*input_time))
   for i in range(input_time):
     tmp = np.empty((seg_num, input_time*seg_num))
