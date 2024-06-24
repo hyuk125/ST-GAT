@@ -206,7 +206,7 @@ for epoch in range(0, t_epoch):
     start.record()
 
     for batch_idx, samples in enumerate(dataloader):
-        if batch_idx % 400 == 0:
+        if batch_idx % 500 == 0:
             print(batch_idx, len(dataloader))
         optimizer.zero_grad()
         input_x = samples[:, :args.seg_num * args.input_time]
